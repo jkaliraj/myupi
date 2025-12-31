@@ -34,10 +34,11 @@ export default function UPIForm({ onGenerate, onLiveChange, initial }) {
 
   const deepLink = () => {
     const url = new URL(window.location.href);
-    url.pathname = "/pay";
-    url.searchParams.set("pa", pa);
-    url.searchParams.set("pn", pn);
-    url.searchParams.set("am", am);
+    const base = url.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+    url.pathname = (base ? base : "") + "/pay";
+    if (pa && pa.toString().trim() !== "") url.searchParams.set("pa", pa);
+    if (pn && pn.toString().trim() !== "") url.searchParams.set("pn", pn);
+    if (am && am.toString().trim() !== "") url.searchParams.set("am", am);
     if (tn && tn.trim() !== "" && tn !== DEFAULT_NOTE) {
       url.searchParams.set("tn", tn);
     }

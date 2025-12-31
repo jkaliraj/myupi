@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <script>
       (function () {
+        const segmentCount = 1;
+        const path =
+          location.pathname
+            .split("/")
+            .slice(segmentCount + 1)
+            .join("/") +
+          location.search +
+          location.hash;
         const base = "/" + location.pathname.split("/")[1] + "/";
-        const path = location.pathname + location.search;
         location.replace(base + "?path=" + encodeURIComponent(path));
       })();
     </script>

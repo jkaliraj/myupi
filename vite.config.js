@@ -19,6 +19,6 @@ module.exports = async () => {
         }
       }
     ],
-    base: process.env.NODE_ENV === "production" ? base : "/",
+    base: '/myupi/',
   });
 };

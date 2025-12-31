@@ -37,7 +37,7 @@ export default function UPIForm({ onGenerate, onLiveChange, initial }) {
     const repoMatch = pathname.match(/^\/([^\/]+)(\/|$)/);
     const repoName = repoMatch ? repoMatch[1] : "";
 
-    const url = new URL(`${window.location.origin}/${repoName}/pay`);
+    const url = new URL(`${window.location.origin}${repoName ? `/${repoName}` : ''}/pay`);
     if (pa && pa.toString().trim() !== "") url.searchParams.set("pa", pa);
     if (pn && pn.toString().trim() !== "") url.searchParams.set("pn", pn);
     if (am && am.toString().trim() !== "") url.searchParams.set("am", am);

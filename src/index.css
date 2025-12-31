@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --upi-bg: #f5f5f5;
+  --upi-black: #1f1f1f;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  @apply min-h-screen font-sans;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+/* Split-screen backgrounds */
+.split-left {
+  background: #ffffff;
+}
+.split-right {
+  background: #ffffff;
+}
+
+/* apply duotone background only on medium+ screens */
+@media (min-width: 768px) {
+  .split-right {
+    background: var(--upi-bg);
+  }
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.25rem;
+  color: #111827;
+}
+
+/* Simple input styles */
+input {
+  @apply border border-gray-300 bg-white text-black px-3 py-1.5 rounded-md font-light text-sm focus:outline-none focus:border-black;
+}
+
+/* Simple button styles */
+button {
+  @apply bg-[#2f2f31] text-white px-4 py-1.5 rounded-md font-normal transition-colors duration-200 hover:bg-gray-800 disabled:bg-[#8b8b8d] disabled:text-white;
+}
+
+.phone-dot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border-radius: 9999px;
+  z-index: 9999;
+}
+
+.app-icon img {
+  object-fit: contain;
+  display: block;
+  width: 43px;
+  height: 43px;
+}
+.app-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-icon img[src$="gpay.svg"] {
+  transform: translateY(2px);
+}

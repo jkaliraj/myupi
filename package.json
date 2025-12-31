@@ -2,7 +2,7 @@
   "name": "myupi",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://jkaliraj.github.io/myupi",
+  "homepage": "https://jkaliraj.github.io/myupi/",
   "scripts": {
     "dev": "vite --port 8000",
     "build": "vite build",

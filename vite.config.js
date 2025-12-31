@@ -6,7 +6,19 @@ module.exports = async () => {
   const homepage = process.env.npm_package_homepage || "";
   const base = homepage ? new URL(homepage).pathname : "/";
   return defineConfig({
-    plugins: [pluginReact.default()],
+    plugins: [
+      pluginReact.default(),
+      {
+        name: 'copy-nojekyll',
+        generateBundle() {
+          this.emitFile({
+            type: 'asset',
+            fileName: '.nojekyll',
+            source: ''
+          });
+        }
+      }
+    ],
     base: process.env.NODE_ENV === "production" ? base : "/",
   });
 };
